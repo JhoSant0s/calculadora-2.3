@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Alavancagem para Trading</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Botão para alternar entre tema claro e escuro -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <div class="sun-icon"><i class="fas fa-sun"></i></div>
+            <div class="moon-icon"><i class="fas fa-moon"></i></div>
+        </button>
+        
+        <div class="header">
+            <h1>Calculadora de Alavancagem</h1>
+            <p class="subtitle">Calcule o valor ideal para operar com segurança no trading</p>
+        </div>
+        
+        <div class="info-box">
+            <h3>O que é alavancagem?</h3>
+            <p>Alavancagem permite que você opere com valores maiores do que tem disponível. Por exemplo, com 1x de alavancagem, para comprar R$100 em Bitcoin, você precisa ter R$100. Com 10x de alavancagem, você pode comprar R$100 em Bitcoin tendo apenas R$10.</p>
+            <p>⚠️ <strong>Atenção:</strong> Quanto maior a alavancagem, maior o risco. Esta calculadora ajuda a definir um valor seguro para operar, reduzindo chances de liquidação.</p>
+        </div>
+        
+        <div class="input-row">
+            <div class="input-field">
+                <label for="capital">Quanto você tem para investir?</label>
+                <input type="number" id="capital" value="1000" min="1" placeholder="Ex: 1000">
+            </div>
+            
+            <div class="input-field">
+                <label for="moeda">Qual moeda você usa?</label>
+                <select id="moeda">
+                    <option value="BRL" selected>BRL (Real)</option>
+                    <option value="USDT">USDT (Tether)</option>
+                    <option value="USDC">USDC (USD Coin)</option>
+                    <option value="BTC">BTC (Bitcoin)</option>
+                    <option value="ETH">ETH (Ethereum)</option>
+                    <option value="USD">USD (Dólar)</option>
+                    <option value="EUR">EUR (Euro)</option>
+                </select>
+            </div>
+            
+            <div class="input-field">
+                <label for="alavancagem">Qual alavancagem você quer usar?</label>
+                <select id="alavancagem">
+                    <option value="125">125x (Muito alto risco)</option>
+                    <option value="100">100x (Alto risco)</option>
+                    <option value="50">50x (Alto risco)</option>
+                    <option value="20">20x (Médio risco)</option>
+                    <option value="10">10x (Médio risco)</option>
+                    <option value="5">5x (Médio risco)</option>
+                    <option value="3" selected>3x (Baixo risco)</option>
+                    <option value="2">2x (Baixo risco)</option>
+                    <option value="1">1x (Sem risco)</option>
+                </select>
+            </div>
+        </div>
+        
+        <button id="calcular">Calcular valor seguro</button>
+        
+        <div class="results">
+            <div class="results-title">Resultados do cálculo</div>
+            <div class="results-grid">
+                <div class="result-box">
+                    <div class="result-label">Seu capital total</div>
+                    <div class="result-value" id="capitalTotal">1.000 BRL</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Alavancagem escolhida</div>
+                    <div class="result-value" id="alavancagemSelecionada">3x</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Valor ideal para usar</div>
+                    <div class="result-value highlight" id="valorMaximo">250 BRL</div>
+                    <div class="result-description">Este é o valor máximo recomendado para operar com segurança.</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Poder de compra total</div>
+                    <div class="result-value" id="valorPosicao">750 BRL</div>
+                    <div class="result-description">Este é o valor total que você poderá operar usando alavancagem.</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Nível de risco</div>
+                    <div class="result-value risk-low" id="nivelRisco">Baixo</div>
+                    <div class="result-description" id="riscoDescricao">Com 3x de alavancagem, o risco é considerado baixo se você usar apenas 25% do seu capital.</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Recomendação</div>
+                    <div class="result-value" id="recomendacaoValor">25%</div>
+                    <div class="result-description" id="recomendacaoDescricao">É recomendado usar apenas 25% do seu capital para operar com 3x de alavancagem.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="tabelaAlavancagem">
+                <thead>
+                    <tr>
+                        <th>Alavancagem</th>
+                        <th>% Recomendada do Capital</th>
+                        <th>Nível de Risco</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- A tabela será preenchida via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            © 2025 Calculadora de Alavancagem para Trading | Use esta calculadora como referência. Sempre adapte sua estratégia conforme sua experiência e tolerância ao risco.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
